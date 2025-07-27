@@ -1,0 +1,21 @@
+# Render.com configuration file
+services:
+  - type: web
+    name: telegram-video-bot # Apne bot ka naam
+    env: python
+    buildCommand: |
+      pip install --upgrade pip
+      pip install -r requirements.txt
+      # ffmpeg install karna zaroori hai kyuki yt-dlp ispar depend karta hai m3u8 streams ke liye
+      apt-get update -y && apt-get install -y ffmpeg
+    startCommand: python main.py
+    envVars:
+      - key: 8219496647:AAG2Oua0cG_2f1lRvI9_6dn61KyH0KXHj-U
+        sync: false # Render dashboard mein set karein
+      - key: -1002827212331
+        sync: false # Render dashboard mein set karein
+      - key: WEBHOOK_URL
+        # Yeh aapki Render service ka public URL hoga.
+        # Example: https://your-service-name.onrender.com
+        # Jab aapki service deploy ho jaye aur aapko URL mil jaye, tab Render dashboard mein isko update karein.
+        sync: false

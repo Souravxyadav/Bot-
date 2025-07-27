@@ -1,0 +1,3 @@
+python-telegram-bot~=20.7 # Latest stable version use karein, 20.x.x
+yt-dlp
+pathvalidate
